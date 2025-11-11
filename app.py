@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key-change-this-in-production'
 app.permanent_session_lifetime = timedelta(hours=24)
 
+
 # JSON file to store users and notes
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = '/tmp' if os.path.isdir('/tmp') and os.access('/tmp', os.W_OK) else BASE_DIR
