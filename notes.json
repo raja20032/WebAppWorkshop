@@ -1,0 +1,38 @@
+{
+  "admin": [
+    {
+      "id": "c778fa5c-5f36-41ca-bcac-fd1ef16634a1",
+      "title": "Meeting Notes1",
+      "content": "Discussed project timeline and deliverables. Key points:\n- Complete design mockups by Friday\n- Review user feedback\n- Plan next sprint",
+      "created_at": "2025-09-26T17:34:11.403410",
+      "updated_at": "2025-09-26T17:34:11.403422",
+      "category": "Work"
+    },
+    {
+      "id": "0a9b7293-23c5-4c6a-9677-628f707ac8a3",
+      "title": "HTML Basics",
+      "content": "Learn about the basic structure of HTML documents, including elements like <html>, <head>, and <body>.\n\nKey concepts:\n- Semantic HTML\n- Document structure\n- Meta tags",
+      "created_at": "2025-09-23T17:34:11.403436",
+      "updated_at": "2025-09-23T17:34:11.403439",
+      "category": "HTML"
+    },
+    {
+      "id": "ea3d0405-f9dd-4d68-a13e-4395d179e9a3",
+      "title": "CSS Styling",
+      "content": "Explore CSS selectors, properties, and values to style HTML elements.\n\n- Selectors: class, id, element\n- Box model\n- Flexbox and Grid",
+      "created_at": "2025-09-21T17:34:11.403445",
+      "updated_at": "2025-09-21T17:34:11.403448",
+      "category": "CSS"
+    }
+  ],
+  "demo": [
+    {
+      "id": "1fcb9186-398c-44db-81f3-03204107eca5",
+      "title": "Grocery List",
+      "content": "Shopping list for this week:\n- Milk\n- Bread\n- Eggs\n- Apples\n- Chicken breast",
+      "created_at": "2025-09-21T17:34:11.403454",
+      "updated_at": "2025-09-21T17:34:11.403457",
+      "category": "Personal"
+    }
+  ]
+}

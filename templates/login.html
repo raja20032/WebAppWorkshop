@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteIt - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "foreground-light": "#0d141b",
+                        "foreground-dark": "#f6f7f8",
+                        "subtle-light": "#e7edf3",
+                        "subtle-dark": "#1a2734",
+                        "muted-light": "#4c739a",
+                        "muted-dark": "#a0b3c6"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+    <div class="flex flex-col min-h-screen">
+        <header class="border-b border-subtle-light dark:border-subtle-dark">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-4">
+                        <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+                        </svg>
+                        <h1 class="text-xl font-bold">NoteIt</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow flex items-center justify-center container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="max-w-md w-full">
+                <div class="bg-background-light dark:bg-subtle-dark p-8 rounded-lg shadow-md">
+                    <h2 class="text-3xl font-bold text-center mb-6">Login</h2>
+                    
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="mb-6">
+                                {% for category, message in messages %}
+                                    <div class="p-4 rounded-lg mb-2 {% if category == 'error' %}bg-red-100 text-red-700 border border-red-200{% else %}bg-green-100 text-green-700 border border-green-200{% endif %}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    
+                    <form class="space-y-6" method="POST" action="{{ url_for('login') }}">
+                        <div>
+                            <label class="block text-sm font-medium text-muted-light dark:text-muted-dark"
+                                for="username">Username or Email</label>
+                            <div class="mt-1">
+                                <input autocomplete="username"
+                                    class="w-full px-3 py-2 rounded-lg bg-subtle-light dark:bg-background-dark border border-subtle-light dark:border-subtle-dark placeholder-muted-light dark:placeholder-muted-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                    id="username" name="username" required="" type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-muted-light dark:text-muted-dark"
+                                for="password">Password</label>
+                            <div class="mt-1">
+                                <input autocomplete="current-password"
+                                    class="w-full px-3 py-2 rounded-lg bg-subtle-light dark:bg-background-dark border border-subtle-light dark:border-subtle-dark placeholder-muted-light dark:placeholder-muted-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                    id="password" name="password" required="" type="password" />
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm">
+                                <a class="font-medium text-primary hover:text-primary/80" href="#">
+                                    Forgot Password?
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                type="submit">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <p class="text-sm text-blue-700 dark:text-blue-300 font-medium mb-2">Demo Credentials:</p>
+                        <p class="text-xs text-blue-600 dark:text-blue-400">Username: <code class="bg-blue-100 dark:bg-blue-800 px-1 rounded">admin</code> Password: <code class="bg-blue-100 dark:bg-blue-800 px-1 rounded">admin123</code></p>
+                        <p class="text-xs text-blue-600 dark:text-blue-400">Username: <code class="bg-blue-100 dark:bg-blue-800 px-1 rounded">demo</code> Password: <code class="bg-blue-100 dark:bg-blue-800 px-1 rounded">demo123</code></p>
+                    </div>
+                    
+                    <p class="mt-6 text-center text-sm text-muted-light dark:text-muted-dark">
+                        Don't have an account?
+                        <a class="font-medium text-primary hover:text-primary/80" href="#">
+                            Sign Up
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
