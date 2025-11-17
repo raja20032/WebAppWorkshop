@@ -53,6 +53,9 @@
                     </div>
                     <div class="flex items-center gap-4">
                         <span class="text-sm text-muted-light dark:text-muted-dark">Welcome, {{ username }}!</span>
+                        <div class="text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 px-3 py-1 rounded-full">
+                            API Key: {{ sample_api_key }}
+                        </div>
                         <button
                             class="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-full font-semibold hover:opacity-90 transition-opacity"
                             onclick="window.location.href='{{ url_for('new_note') }}'">
@@ -89,6 +92,11 @@
                         </div>
                     {% endif %}
                 {% endwith %}
+                
+                <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                    <p class="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-1">Environment Variable Test:</p>
+                    <p class="text-sm text-blue-800 dark:text-blue-300 font-mono">sample_api_key = {{ sample_api_key }}</p>
+                </div>
                 
                 <div class="mb-8">
                     <form method="GET" action="{{ url_for('search_notes') }}" class="relative">
