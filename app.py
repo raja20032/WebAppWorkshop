@@ -146,6 +146,10 @@ def logout():
 @login_required
 def dashboard():
     """Dashboard showing user's notes"""
+    # Get and print the sample_api_key from environment variable
+    sample_api_key = os.getenv('sample_api_key', 'Not configured')
+    print(f"Sample API Key: {sample_api_key}")
+    
     notes_data = load_json_file(NOTES_FILE)
     user_notes = notes_data.get(session['user_id'], [])
     
@@ -170,7 +174,7 @@ def dashboard():
             months = days_ago // 30
             note['formatted_date'] = f'{months} month{"s" if months > 1 else ""} ago'
     
-    return render_template('dashboard.html', notes=user_notes, username=session['user_id'])
+    return render_template('dashboard.html', notes=user_notes, username=session['user_id'], sample_api_key=sample_api_key)
 
 @app.route('/new-note', methods=['GET', 'POST'])
 @login_required
