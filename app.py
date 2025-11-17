@@ -174,6 +174,7 @@ def dashboard():
             months = days_ago // 30
             note['formatted_date'] = f'{months} month{"s" if months > 1 else ""} ago'
     
+    
     return render_template('dashboard.html', notes=user_notes, username=session['user_id'], sample_api_key=sample_api_key)
 
 @app.route('/new-note', methods=['GET', 'POST'])
